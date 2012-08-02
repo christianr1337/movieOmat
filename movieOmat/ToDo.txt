@@ -1,0 +1,12 @@
+Prio1:
+- klickable content (zB Actor, Movie..)
+- Models fertig denken und füllen
+- indexpage füllen
+- testdatengenerator
+
+Prio2:
+- Layout
+- Doku
+
+Prio3
+- testcases

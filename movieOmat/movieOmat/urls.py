@@ -5,13 +5,16 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'rateAmovie.views.home', name='home'),
-    # url(r'^rateAmovie/', include('rateAmovie.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
-     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-     url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
+     
+    url(r'^movies/$', 'movies.views.index'),
+    url(r'^movies/(?P<movie_id>\d+)/$', 'movies.views.detail'),
+    url(r'^movies/(?P<movie_id>\d+)/results/$', 'movies.views.results'),
+    
+    url(r'^actors/(?P<actor_id>\d+)/$', 'movies.views.actor'),
 )

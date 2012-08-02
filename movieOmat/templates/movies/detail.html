@@ -1,0 +1,10 @@
+<h1>Details:</h1>
+Name: {{ movie.name }} <br>
+Pubdate: {{movie.publication}}
+
+<h2>Schauspieler</h2>
+<ul>
+{% for actor in movie.actors.all %}
+    <li><a href="/actors/{{ actor.id }}/">{{ actor }}</a></li>
+{% endfor %}
+</ul>
