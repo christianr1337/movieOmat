@@ -1,10 +1,35 @@
-<h1>Details:</h1>
-Name: {{ movie.name }} <br>
-Pubdate: {{movie.publication}}
+{% extends "movies/base.html" %}
 
-<h2>Schauspieler</h2>
-<ul>
-{% for actor in movie.actors.all %}
-    <li><a href="/actors/{{ actor.id }}/">{{ actor }}</a></li>
-{% endfor %}
-</ul>
+{% block content %}
+    <style type="text/css">
+        .main { margin-left: 20px; margin-top: 25px; }
+        .time { font-size: 0.9em; margin-top: 3px; }
+        .body { font-size: 1.2em; margin-top: 3px; }
+        .commentlink { text-align: right; }
+        .step-links a { font-size: 0.89em; }
+        .title {
+            font-size: 1.5em; margin-top: 15px; border-bottom: 1px solid #ccc;
+            padding-left: 4px; margin-left: 5px;
+        }
+        .messages { margin-left: 20px; }
+        .pagination { margin-top: 20px; margin-left: -20px; }
+    </style>
+    
+    <div class="main">
+
+      
+		<h1>Details:</h1>
+		Name: {{ movie.name }} <br>
+		Pubdate: {{movie.publication}}
+		
+		<h2>Schauspieler</h2>
+		<ul>
+		{% for actor in movie.actors.all %}
+		    <li><a href="/actors/{{ actor.id }}/">{{ actor }}</a></li>
+		{% endfor %}
+		</ul>
+		<input type=button value="Zurück" onClick="javascript:history.go(-1);">
+
+    </div>
+
+{% endblock %}

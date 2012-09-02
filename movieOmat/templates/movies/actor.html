@@ -1,5 +1,32 @@
-<h1> Schauspieler </h1>
-<div>
-Name: {{ actor }} <!-- namen extrahieren etc. -->
-...
-</div>
+{% extends "movies/base.html" %}
+
+{% block content %}
+    <style type="text/css">
+        .main { margin-left: 20px; margin-top: 25px; }
+        .time { font-size: 0.9em; margin-top: 3px; }
+        .body { font-size: 1.2em; margin-top: 3px; }
+        .commentlink { text-align: right; }
+        .step-links a { font-size: 0.89em; }
+        .title {
+            font-size: 1.5em; margin-top: 15px; border-bottom: 1px solid #ccc;
+            padding-left: 4px; margin-left: 5px;
+        }
+        .messages { margin-left: 20px; }
+        .pagination { margin-top: 20px; margin-left: -20px; }
+    </style>
+    
+    <div class="main">
+
+      
+		<h1> Schauspieler </h1>
+		<div>
+		ID: {{ actor.id }} <br> 
+		Name: {{ actor.lastname }} <br> 
+		Vorname: {{ actor.firstname }} <br> 
+		...
+		</div>
+		<input type=button value="Zurück" onClick="javascript:history.go(-1);">
+
+    </div>
+
+{% endblock %}

@@ -1,10 +1,79 @@
-Latest movies listed
-{% if latest_movie_list %}
-    <ul>
-    {% for movie in latest_movie_list %}
-        <li><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No movies are available.</p>
-{% endif %}
+{% extends "movies/base.html" %}
+
+{% block content %}
+    <style type="text/css">
+        .main { margin-left: 20px; margin-top: 25px; }
+        .time { font-size: 0.9em; margin-top: 3px; }
+        .rating { font-size: 1.2em; margin-top: 3px; }
+        .commentlink { text-align: right; }
+        .step-links a { font-size: 0.89em; }
+        .title {
+            font-size: 1.5em; margin-top: 15px; border-bottom: 1px solid #ccc;
+            padding-left: 4px; margin-left: 5px;
+        }
+        .messages { margin-left: 20px; }
+        .pagination { margin-top: 20px; margin-left: -20px; }
+        
+        a:link 
+		{ 
+		text-decoration: none; 
+		text-underline: none; } 
+		
+		a:active 
+		{ 
+		text-decoration: none; 
+		text-underline: none; } 
+		
+		a:visited 
+		{  
+		text-decoration: none; 
+		text-underline: none; } 
+		
+		a:hover 
+		{
+		text-decoration: none; 
+		text-underline: none; } 
+    </style>
+    
+    <div class="main">
+
+        <!-- Movies A-M N-Z ...  -->
+            {% for movie in latest_movie_list %}
+                <div class="title"><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></div>
+                <ul>
+                    <div class="time">{{ movie.publication }}</div>
+                    <div class="rating">{{ movie.rating }}</div>
+                </ul>
+            {% endfor %}
+
+    </div>
+
+{% endblock %}
+
+a:link 
+{ font-family: Verdana,Arial; 
+font-size: 11px; 
+color: #000000; 
+text-decoration: none; 
+text-underline: none; } 
+
+a:active 
+{ font-family: Verdana,Arial; 
+font-size: 11px; 
+color: #000000; 
+text-decoration: none; 
+text-underline: none; } 
+
+a:visited 
+{ font-family: Verdana,Arial; 
+font-size: 11px; 
+color: #000000; 
+text-decoration: none; 
+text-underline: none; } 
+
+a:hover 
+{ font-family: Verdana,Arial; 
+font-size: 11px; 
+color: #000000; 
+text-decoration: none; 
+text-underline: none; } 

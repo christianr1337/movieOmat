@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block title %}Movie O Mat{% endblock %}</title>
+    <link rel="stylesheet" href="/style.css" type="text/css" media="screen"
+      charset="utf-8" />
+
+    <style type="text/css">
+        * {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        #menu a {
+            text-decoration: none;
+            background: #eee;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-right: 2px solid #fff;
+            padding-right: 3px;
+            padding-left: 3px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        a:hover {
+            background: #eeebeb;
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+            color: #555;
+        }
+
+        #container { margin: auto; width: 800px; border: 0px solid; }
+        p { font-size: 1.1em; }
+        h3 { margin-right: 30px; display: inline; }
+    </style>
+
+</head>
+
+<body>
+    <div id="sidebar"> 
+
+		<style type="text/css">
+        #sidebar { float: right; border: 1px dotted #ccc; padding: 4px; }
+        a { margin-left: 15px; }
+   		 </style>
+    	<div id="sidebar">
+        Latest movies listed
+		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+		{% if latest_movie_list %}
+		    <ul>
+		    {% for movie in latest_movie_list %}
+		        <li><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></li>
+		    {% endfor %}
+		    </ul>
+		{% else %}
+		    <p>No movies are available.</p>
+		{% endif %}
+		</div>
+	</div>
+	
+	<div id="search"> 
+
+		<style type="text/css">
+        #search { float: left; border: 1px dotted #ccc; padding: 4px; }
+        a { margin-left: 15px; }
+   		 </style>
+    	<div id="search">
+        	<center>Searching Movies/Actors</center> <br>
+			<input type="text"> <input type="button" value="Find!">
+		</div>
+	</div>
+
+
+    <div id="container">
+        <div id="menu">
+            {% block nav-global %}
+
+                <!-- MENU/HEAD -->
+                <h3>Movie oooo Mat</h3>
+              
+
+            {% endblock %}
+        </div>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>
