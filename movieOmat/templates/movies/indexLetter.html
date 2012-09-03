@@ -32,13 +32,12 @@
 		a:hover 
 		{
 		text-decoration: none; 
-		text-underline: none; } 
+		text-underline: none; }
 		
-		.latest { font-size:1.8em; }
+		.latest { font-size:1.8em; } 
     </style>
-    
     <div class="main">
-		<div id="navigation"> 
+    	<div id="navigation"> 
 
 			<style type="text/css">
 	        #navigation { border: 1px dotted #ccc; padding: 4px; }
@@ -48,14 +47,16 @@
 		       {% for letter in letters	%}
 				<a href="/movies/alpha/{{ letter }}/">{{ letter }}</a>
 				{% endfor %} 
+		        <!-- Movies A-M N-Z ...  -->
+				<h1 class="latest"> <a href="/movies">movies</a> > {{ movie_letter }}  </h1>  
 			</div>
 		</div>
-        <!-- Movies A-M N-Z ...  -->
-        <h1 class="latest"> Latest released movies </h1>
-            {% for movie in latest_movie_list %}
-                <div class="title"><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></div>
-                <ul>
-                    <div class="time">Publication date: {{ movie.publication }}</div>
+		
+            {% if all_movies_with_letter %}
+	            {% for movie in all_movies_with_letter %}
+	                <div class="title"><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></div>
+	                <ul>
+	                    <div class="time">Publication date: {{ movie.publication }}</div>
                     	<div class="rating">Rating: {{ movie.rating }}</div>
                     	<div class="rating">Actors:
                     			<ul>
@@ -64,9 +65,12 @@
 									{% endfor %}
 								</ul>
 						</div>
-                </ul>
-            {% endfor %}
+	                </ul>
+	            {% endfor %}
+	        {% else %}
+			    <p>No Movie matched this letter.</p>
+			{% endif %}
+	</div>
 
-    </div>
 
 {% endblock %}

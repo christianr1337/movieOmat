@@ -24,6 +24,18 @@
             color: #777;
             font-size: 0.9em;
         }
+        
+         #menu a:hover {
+            text-decoration: none;
+            background: #eee;
+            border-top: 1px solid red;
+            border-bottom: 2px solid red;
+            border-right: 2px solid #fff;
+            padding-right: 3px;
+            padding-left: 3px;
+            color: #777;
+            font-size: 0.9em;
+        }
 
         a:hover {
             background: #eeebeb;
@@ -35,11 +47,17 @@
         #container { margin: auto; width: 800px; border: 0px solid; }
         p { font-size: 1.1em; }
         h3 { margin-right: 30px; display: inline; }
+        #head { margin-left: 150px; margin-top: 10px; margin-bottom: 30px }
+        #head h1 { font-size: 2.2em; font-family: courier}
     </style>
 
 </head>
 
 <body>
+	<div id="head">
+            <h1>Movie-O-Mat Movie Database and Rating Platform</h1>
+    </div>
+
     <div id="sidebar"> 
 
 		<style type="text/css">
@@ -69,19 +87,29 @@
    		 </style>
     	<div id="search">
         	<center>Searching Movies/Actors</center> <br>
-			<input type="text"> <input type="button" value="Find!">
+        	<form action="/movies/search/" method="get">
+		        <input type="text" name="q">
+		        <input type="submit" value="Find!">
+		    </form>
+
 		</div>
 	</div>
 
 
     <div id="container">
+    	
         <div id="menu">
             {% block nav-global %}
-
-                <!-- MENU/HEAD -->
-                <h3>Movie oooo Mat</h3>
-              
-
+				
+                <!-- MENU/HEAD
+                <h3>
+                <a href="/movies">Menu1</a>
+              	<a href="/movies">Menu2</a>
+              	<a href="/movies">Menu3</a>
+              	<a href="/movies">Menu4</a>
+              	<a href="/movies">Menu5</a>
+              	</h3>
+ -->
             {% endblock %}
         </div>
 

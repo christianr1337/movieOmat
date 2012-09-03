@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
      
     url(r'^movies/$', 'movies.views.index'),
+    url(r'^movies/alpha/(?P<movie_letter>\w+)/$', 'movies.views.indexLetter'),
+    url(r'^movies/search/$', 'movies.views.search'),
     url(r'^movies/(?P<movie_id>\d+)/$', 'movies.views.detail'),
     url(r'^movies/(?P<movie_id>\d+)/results/$', 'movies.views.results'),
     

@@ -1,0 +1,77 @@
+{% extends "movies/base.html" %}
+
+{% block content %}
+    <style type="text/css">
+        .main { margin-left: 20px; margin-top: 25px; }
+        .time { font-size: 0.9em; margin-top: 3px; }
+        .rating { font-size: 1.2em; margin-top: 3px; }
+        .commentlink { text-align: right; }
+        .step-links a { font-size: 0.89em; }
+        .title {
+            font-size: 1.5em; margin-top: 15px; border-bottom: 1px solid #ccc;
+            padding-left: 4px; margin-left: 5px;
+        }
+        .messages { margin-left: 20px; }
+        .pagination { margin-top: 20px; margin-left: -20px; }
+        
+        a:link 
+		{ 
+		text-decoration: none; 
+		text-underline: none; } 
+		
+		a:active 
+		{ 
+		text-decoration: none; 
+		text-underline: none; } 
+		
+		a:visited 
+		{  
+		text-decoration: none; 
+		text-underline: none; } 
+		
+		a:hover 
+		{
+		text-decoration: none; 
+		text-underline: none; } 
+    </style>
+    
+    <div class="main">
+    SEARCH!
+		{% for letter in letters	%}
+		<a href="/movies/alpha/{{ letter }}/">{{ letter }}</a>
+		{% endfor %}
+        <p>You searched for: <strong>{{ query }}</strong></p>
+            <!-- MOVIES SEARCH-->
+			{% if movies %}
+			    <p>Found {{ movies|length }} movie{{ movies|pluralize }}.</p>
+			    <ul>
+			        {% for movie in movies %}
+			        <li><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></li>
+			        {% endfor %}
+			    </ul>
+			{% else %}
+			    <p>No movies matched your search criteria.</p>
+			{% endif %}
+			
+			<!-- MOVIES SEARCH-->
+			{% if actors %}
+			    <p>Found {{ actors|length }} actor{{ actors|pluralize }}.</p>
+			    <ul>
+			        {% for actor in actors %}
+			        <li><a href="/actors/{{ actor.id }}/">{{ actor.firstname }} {{ actor.lastname }}</a></li>
+			        {% endfor %}
+			    </ul>
+			{% elif first_name_actors %}
+			   <p>Found {{ first_name_actors|length }} actor{{ actors|pluralize }}.</p>
+			    <ul>
+			        {% for actor in first_name_actors %}
+			        <li><a href="/actors/{{ actor.id }}/">{{ actor.firstname }} {{ actor.lastname }}</a></li>
+			        {% endfor %}
+			    </ul>
+			{% else %}
+			    <p>No Actor matched your search criteria.</p>
+			{% endif %}
+
+    </div>
+
+{% endblock %}
