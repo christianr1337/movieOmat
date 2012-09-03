@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^movies/search/$', 'movies.views.search'),
     url(r'^movies/(?P<movie_id>\d+)/$', 'movies.views.detail'),
     url(r'^movies/(?P<movie_id>\d+)/results/$', 'movies.views.results'),
+    url(r"^movies/add_comment/(\d+)/$", 'movies.views.comments'),
     
     url(r'^actors/(?P<actor_id>\d+)/$', 'movies.views.actor'),
 )

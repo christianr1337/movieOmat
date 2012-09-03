@@ -49,3 +49,6 @@ def search(request):
             {'movies': movies, 'actors': actors, 'first_name_actors': first_name_actors, 'query': q}, context_instance=RequestContext(request))
     else:
         return HttpResponse('Please submit a search term.')
+    
+def comments(request):
+    return HttpResponse("Comments")
