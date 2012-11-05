@@ -19,20 +19,29 @@
 
       	<!-- TODO: besser formatieren und bild hinzufügen SPAETER: imdb daten holen -->
 		<h1>Details:</h1>
-		Name: {{ movie.name }} <br>
-		Pubdate: {{movie.publication}} <br>
+		Name: {{ movie.name }} (IMDb Name: {{movie.imdb_name}}) <br>
+		Folder: {{ movie.in_folder}} <br>
+		Quality: {{ movie.quality}} <br>
+		&nbsp; <br>
+		Languages: {{movie.languages}} <br>
+		&nbsp; <br>
+		Seen: {{movie.see}} <br>
+		&nbsp; <br>
+		Rating IMDB: {{movie.imdb_rating}} <br>
+		Rating: {{movie.rating}} <br>
+		&nbsp; <br>
+		Length: {{movie.length}} <br>
+		&nbsp; <br>
+		
 		Regisseur: {{movie.regisseur}} <br>
+
 		<h2>Schauspieler</h2>
 		<ul>
 		{% for actor in movie.actors.all %}
 		    <li><a href="/actors/{{ actor.id }}/">{{ actor }}</a></li>
 		{% endfor %}
 		</ul>
-		Seen: {{movie.see}} <br>
-		Length: {{movie.length}} <br>
-		Language(s): {% for language in movie.languages.all %}
-		    {{ language }}
-		{% endfor %}
+		
 		<br> &nbsp; <br>
 		Description: {{movie.description}} <br>
 		<br> &nbsp; <br>

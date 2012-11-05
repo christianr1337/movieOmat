@@ -54,17 +54,12 @@
 		
             {% if all_movies_with_letter %}
 	            {% for movie in all_movies_with_letter %}
-	                <div class="title"><a href="/movies/{{ movie.id }}/">{{ movie.name }}</a></div>
+	                <div class="title"><a href="/movies/{{ movie.id }}/">{{ movie.name }} (IMDb Name: {{movie.imdb_name}})</a></div>
 	                <ul>
-	                    <div class="time">Publication date: {{ movie.publication }}</div>
-                    	<div class="rating">Rating: {{ movie.rating }}</div>
-                    	<div class="rating">Actors:
-                    			<ul>
-									{% for actor in movie.actors.all %}
-									    <li><a href="/actors/{{ actor.id }}/">{{ actor }}</a></li>
-									{% endfor %}
-								</ul>
-						</div>
+	                    <div class="time">Folder: {{ movie.in_folder }}</div>
+	                    <div class="time">Languages: {{ movie.languages }}</div>
+	                    <div class="time">IMDb-Rating: {{ movie.imdb_rating }}</div>
+	                    <div class="rating">Rating: {{ movie.rating }}</div>
 	                </ul>
 	            {% endfor %}
 	        {% else %}

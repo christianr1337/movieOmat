@@ -5,16 +5,17 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 import string
 from movies.util import get_query
+import operator
 
 def index(request):
-    latest_movie_list = Movie.objects.all().order_by('-publication')[:5]
+    latest_movie_list = Movie.objects.all().order_by('-publication')[:40]
     
     allTheLetters = string.uppercase
     
     return render_to_response('movies/index.html', {'latest_movie_list': latest_movie_list, 'letters': allTheLetters}, context_instance=RequestContext(request))
     
 def indexLetter(request, movie_letter):
-    all_movies_with_letter = Movie.objects.filter(name__istartswith=movie_letter)
+    all_movies_with_letter = Movie.objects.filter(name__istartswith=movie_letter).order_by('name')
     allTheLetters = string.uppercase
     
     return render_to_response('movies/indexLetter.html', {'movie_letter': movie_letter, 'all_movies_with_letter': all_movies_with_letter, 'letters': allTheLetters}, context_instance=RequestContext(request))
