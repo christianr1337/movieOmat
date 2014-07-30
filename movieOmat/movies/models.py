@@ -1,12 +1,14 @@
 from django.db import models
 
+#Actor
 class Actor(models.Model):
     lastname = models.CharField(max_length=20)
     firstname = models.CharField(max_length=20)
     birthday = models.DateTimeField(blank=True, null=True)
     def __unicode__(self):
         return self.firstname + " " + self.lastname
-    
+
+#Director
 class Regisseur(models.Model):
     lastname = models.CharField(max_length=20)
     firstname = models.CharField(max_length=20)
@@ -14,12 +16,14 @@ class Regisseur(models.Model):
     def __unicode__(self):
         return self.firstname + " " + self.lastname
     
+#Language
 class Language (models.Model):
     language = models.CharField(max_length=20)
     
     def __unicode__(self):
         return self.language
 
+#Joint Model Movie
 class Movie(models.Model):
     name = models.CharField(max_length=50)
     imdb_name = models.CharField(max_length=50)
@@ -37,7 +41,8 @@ class Movie(models.Model):
 
     def __unicode__(self):
         return self.name
-    
+
+#Comment
 class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=60)
