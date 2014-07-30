@@ -1,8 +1,8 @@
 ######
 #
 #
-#Iteriert über Movies/Regisseure/Actoren
-#Speichert Infos wie namen, Bday, Movies
+#Iterates over Movies/Directors/Actors
+#Saves information like names, birthday, movies,...
 #
 #
 ######
